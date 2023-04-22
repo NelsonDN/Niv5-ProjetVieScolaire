@@ -1,99 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>School Life</title>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta content="" name="keywords">
-  <meta content="" name="description">
+@extends('home.layouts.app')
 
-  <!-- Favicons -->
-  <link href="{{ asset('assetshome/img/logo1.png') }}" rel="icon">
-  <link href="{{ asset('assetshome/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+@section('title')
+   School Life
+@endsection
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
-
-  <!-- Bootstrap CSS File -->
-  <link href="{{ asset('assetshome/lib/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-
-  <!-- Liibraries CSS Files -->
-  <link href="{{ asset('assetshome/lib/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('assetshome/lib/animate/animate.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('assetshome/lib/ionicons/css/ionicons.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('assetshome/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('assetshome/lib/lightbox/css/lightbox.min.css') }}" rel="stylesheet">
-
-  <!-- Main Stylesheet File -->
-  <link href="{{ asset('assetshome/css/style.css') }}" rel="stylesheet">
-  <link href="{{ asset('assetshome/css/scss-files.scss') }}" rel="stylesheet">
-
-
-  <!-- =======================================================
-    Theme Name: Rapid
-    Theme URL: https://bootstrapmade.com/rapid-multipurpose-bootstrap-business-template/
-    Author: BootstrapMade.com
-    License: https://bootstrapmade.com/license/
-  ======================================================= -->
-</head>
-
-<body>
-  <!--==========================
-  Header
-  ============================-->
-  <header id="header">
-
-    <div id="topbar">
-      <div class="container">
-        <div class="social-links">
-          <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-          <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-          <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-          <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-
-      <div class="logo float-left">
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <h1 class="text-light"><a href="#intro" class="scrollto"><span>School life</span></a></h1>
-        <!-- <a href="#header" class="scrollto"><img src="img./logo1.pnfg" alt="" class="img-fluid"></a> -->
-      </div>
-
-      <nav class="main-nav float-right d-none d-lg-block">
-        <ul>
-          <li class="active"><a href="#intro">Accueil</a></li>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
-          <li class="drop-down"><a href="">Drop Down</a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="drop-down"><a href="#">Drop Down 2</a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-              <li><a href="#">Drop Down 5</a></li>
-            </ul>
-          </li>
-          <li class="text-align"><a href="#footer">Login<img src="{{ asset('assetshome/img/login.png') }}" alt="" class="img-fluid"></a></li>
-        </ul>
-      </nav><!-- .main-nav -->
-
-    </div>
-  </header><!-- #header -->
-
-  <!--==========================
+@section('content')
+    <!--==========================
     Intro Section
   ============================-->
   <section id="intro" class="clearfix">
@@ -122,27 +34,27 @@
     <!--==========================
       About Us Section
     ============================-->
-    <section id="about">
+    <section id="about" class="wow fadeIn">
 
       <div class="container">
         <div class="row">
 
-          <div class="col-lg-5 col-md-6">
+          <div class="col-lg-5 col-md-6 wow bounceInLeft" data-wow-delay="0.3s" data-wow-duration="1.6s">
             <div class="about-img">
               <img src="{{ asset('assetshome/img/boy.jpg') }}" alt="">
             </div>
           </div>
 
-          <div class="col-lg-7 col-md-6">
+          <div class="col-lg-7 col-md-6 wow bounceInRight" data-wow-duration="1.6s">
             <div class="about-content">
               <h2>A propos de nous</h2>
               <h3>SCHOOL&LIFE facilite la gestion de la vie scolaire</h3>
               <p>L'encadrement solaire pour ue meilleure réussite !</p>
               <p class="text-justify">Notre module de vie scolaire propose une interface intuitive capable de gérer l’ensemble des processus de la vie scolaire, quels que soient le nombre des élèves, des enseignants et la pluralité des niveaux et des disciplines. Notre module de vie scolaire est un véritable outil de travail performant qui offre les outils et les fonctionnalités nécessaires pour une bonne gestion totale de vos démarches quotidiennes.</p>
               <ul>
-                <li><i class="ion-android-checkmark-circle"></i>Pour une évaluation positive, le cahier de réussites numérique maternelle vous permettra de consigner instantanément les réussites de chacun de vos élèves. Possibilité de joindre des photos et enregistrements pour les personnaliser..</li>
-                <li><i class="ion-android-checkmark-circle"></i>Les absences, retards, motifs et justificatifs sont enregistrés pour suivre l’assiduité des élèves plus facilement. .</li>
-                <li><i class="ion-android-checkmark-circle"></i>Centralisez l’ensemble des informations scolaires des élèves dans un dossier consultable uniquement par les personnes habilitées.</li>
+                <li class="wow bounceInUp clearfix" data-wow-delay="0.5s"><i class="ion-android-checkmark-circle"></i>Pour une évaluation positive, le cahier de réussites numérique maternelle vous permettra de consigner instantanément les réussites de chacun de vos élèves. Possibilité de joindre des photos et enregistrements pour les personnaliser..</li>
+                <li class="wow bounceInUp clearfix" data-wow-delay="0.7s"><i class="ion-android-checkmark-circle"></i>Les absences, retards, motifs et justificatifs sont enregistrés pour suivre l’assiduité des élèves plus facilement. .</li>
+                <li class="wow bounceInUp clearfix" data-wow-delay="0.9s"><i class="ion-android-checkmark-circle"></i>Centralisez l’ensemble des informations scolaires des élèves dans un dossier consultable uniquement par les personnes habilitées.</li>
               </ul>
             </div>
           </div>
@@ -250,7 +162,7 @@
           <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
             <div class="box">
               <div class="icon" style="background: #fceef3;"><i class="fa fa-file-text" style="color: #ff689b;"></i></div>
-              <h4 class="title"><a href="">Fiches élèves</a></h4>
+              <h4 class="title">Fiches élèves</h4>
               <p class="description">En un seul clic, l’enseignant visualise l’ensemble des informations de ses élèves : date de naissance, date d’entrée, trombinoscope, etc.</p>
             </div>
           </div>
@@ -258,20 +170,20 @@
             <div class="box">
               <div class="icon" style="background: #fff0da;"><i class="ion-ios-bookmarks-outline" style="color: #e98e06;"></i></div>
               <h4 class="title"><a href="">Gestion des examens</a></h4>
-              <p class="description">Programmer et diffuser l’ensemble des examens.</p>
+              <p class="description">Programmer et diffuser l’ensemble des examens.  Grâce à des interfaces intuitives, et des notifications aux parents lors de l'approchedu delai.</p>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
             <div class="box">
-              <div class="icon" style="background: #e6fdfc;"><i class="ion-ios-paper-outline" style="color: #3fcdc7;"></i></div>
+              <div class="icon" style="background: #e6fdfc;"><i class="fa fa-calendar-check-o" style="color: #3fcdc7;"></i></div>
               <h4 class="title"><a href="">Gestion des événements</a></h4>
-              <p class="description">Créer et partager les événements (réunions, portes ouvertes, tournois sportifs, etc.) en les ajoutant en ligne. Vous pouvez choisir les personnes avec qui partager.</p>
+              <p class="description">Créer et partager les événements (réunions, portes ouvertes, tournois sportifs, etc.). Vous pouvez choisir les personnes concernés.</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
             <div class="box">
-              <div class="icon" style="background: #eafde7;"><i class="ion-ios-speedometer-outline" style="color:#41cf2e;"></i></div>
+              <div class="icon" style="background: #eafde7;"><i class="fa fa-list" style="color:#41cf2e;"></i></div>
               <h4 class="title"><a href="">Gestion des classes</a></h4>
               <p class="description">Affectation des enseignants, choix du ou des professeurs principaux, matières, options, etc.</p>
             </div>
@@ -279,39 +191,39 @@
 
           <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.2s" data-wow-duration="1.4s">
             <div class="box">
-              <div class="icon" style="background: #e1eeff;"><i class="ion-ios-world-outline" style="color: #2282ff;"></i></div>
+              <div class="icon" style="background: #e1eeff;"><i class="fa fa-book" style="color: #2282ff;"></i></div>
               <h4 class="title"><a href="">Gestion des matières</a></h4>
               <p class="description">Ajoutez ou personnalisez les matières selon les spécialités de votre établissement.</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.2s" data-wow-duration="1.4s">
             <div class="box">
-              <div class="icon" style="background: #ecebff;"><i class="ion-ios-clock-outline" style="color: #8660fe;"></i></div>
+              <div class="icon" style="background: #ecebff;"><i class="fa fa-folder" style="color: #8660fe;"></i></div>
               <h4 class="title"><a href="">Cahier de texte numérique</a></h4>
-              <p class="description">Le cahier de texte permet l’échange entre enseignants et élèves : synthèse des cours, fichiers en PDF, liens vers les ressources numériques, etc.</p>
+              <p class="description">Le cahier de texte permet l’échange entre enseignants et élèves : synthèse des cours, fichiers en PDF, etc.</p>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.3s" data-wow-duration="1.4s">
             <div class="box">
-              <div class="icon" style="background: #e1eeff;"><i class="ion-ios-world-outline" style="color: #2282ff;"></i></div>
+              <div class="icon" style="background: #e1eeff;"><i class="fa fa-desktop" style="color: #ec1aa6;"></i></div>
               <h4 class="title"><a href="">Tableau de bord</a></h4>
               <p class="description">Visualisez en temps réel et en un clin d’œil tout ce qui se passe dans l’établissement et suivez facilement les évènements : absences, cours, événement, tâche, etc.</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.3s" data-wow-duration="1.4s">
             <div class="box">
-              <div class="icon" style="background: #ecebff;"><i class="ion-ios-clock-outline" style="color: #8660fe;"></i></div>
+              <div class="icon" style="background: #ecebff;"><i class="fa fa-folder-open" style="color: #ec1212;"></i></div>
               <h4 class="title"><a href="">Suivi des absences et des retards</a></h4>
-              <p class="description">Les absences, retards, motifs et justificatifs sont enregistrés pour suivre l’assiduité des élèves plus facilement. Une notification apparaît dans le tableau de bord de l’administrateur pour signaler toute absence de 4 demi-journées dans le mois.</p>
+              <p class="description">Les absences, retards et justificatifs sont enregistrés pour suivre l’assiduité des élèves. Une notification apparaît dans le tableau de bord de l’administrateur.</p>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.4s" data-wow-duration="1.4s">
             <div class="box">
-              <div class="icon" style="background: #ecebff;"><i class="ion-ios-clock-outline" style="color: #8660fe;"></i></div>
+              <div class="icon" style="background: #ecebff;"><i class="fa fa-newspaper-o" style="color: #bdd109;"></i></div>
               <h4 class="title"><a href="">Dossier scolaire</a></h4>
-              <p class="description">Centralisez l’ensemble des informations scolaires des élèves dans un dossier consultable uniquement par les personnes habilitées.</p>
+              <p class="description">Centralisez l’ensemble des informations scolaires des élèves dans un dossier consultable uniquement par les personnes habilitées. Archivage sous forme numérique.</p>
             </div>
           </div>
 
@@ -320,7 +232,7 @@
       </div>
     </section><!-- #services -->
 
-    <!--==========================
+    {{-- <!--==========================
       Call To Action Section
     ============================-->
     <section id="call-to-action" class="wow fadeInUp">
@@ -336,7 +248,7 @@
         </div>
 
       </div>
-    </section><!-- #call-to-action -->
+    </section><!-- #call-to-action --> --}}
 
     <!--==========================
       Features Section
@@ -346,34 +258,29 @@
 
         <div class="row feature-item">
           <div class="col-lg-6 wow fadeInUp">
-            <img src="{{ asset('assetshome/img/features-1.svg')}}" class="img-fluid" alt="">
+            <img src="{{ asset('assetshome/img/echanges.png')}}" class="animated bounce infinite img-fluid" alt="">
           </div>
           <div class="col-lg-6 wow fadeInUp pt-5 pt-lg-0">
-            <h4>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h4>
-            <p>
-              Ipsum in aspernatur ut possimus sint. Quia omnis est occaecati possimus ea. Quas molestiae perspiciatis occaecati qui rerum. Deleniti quod porro sed quisquam saepe. Numquam mollitia recusandae non ad at et a.
+            <h4 style="color:rgb(9, 93, 248);">SchooLife connecte et facilite les échanges entre utilisateurs</h4>
+            <p class="text-justify">
+              Nous savons à quel point il est important de faciliter les échanges entre les membres d'une équipe de gestion scolaire.
             </p>
-            <p>
-              Ad vitae recusandae odit possimus. Quaerat cum ipsum corrupti. Odit qui asperiores ea corporis deserunt veritatis quidem expedita perferendis. Qui rerum eligendi ex doloribus quia sit. Porro rerum eum eum.
-            </p>
+            <p class="text-justify">Notre plateforme de communication est conçue pour être simple et intuitive, ce qui signifie que même les utilisateurs novices peuvent l'utiliser sans difficulté. Elle permet de communiquer par messages instantanés, d'envoyer des fichiers et de partager des documents en temps réel, ce qui facilite la collaboration entre les membres de l'équipe.</p>
+            <p><strong><span style="color:rgb(221, 113, 40);">Schoo</span><span style="color:rgb(44, 44, 230);">Life</span></strong>, nous sommes convaincus que la communication est la clé de la réussite d'une administration.</p>
+
           </div>
         </div>
 
         <div class="row feature-item mt-5 pt-5">
-          <div class="col-lg-6 wow fadeInUp order-1 order-lg-2">
-            <img src="{{ asset('assetshome/img/features-2.svg')}}" class="img-fluid" alt="">
+          <div class="col-lg-7 wow fadeInUp order-1 order-lg-2">
+            <img src="{{ asset('assetshome/img/multi.jpg')}}" class="animated bounce infinite img-fluid" alt="">
           </div>
-
-          <div class="col-lg-6 wow fadeInUp pt-4 pt-lg-0 order-2 order-lg-1">
-            <h4>Neque saepe temporibus repellat ea ipsum et. Id vel et quia tempora facere reprehenderit.</h4>
-            <p>
-             Delectus alias ut incidunt delectus nam placeat in consequatur. Sed cupiditate quia ea quis. Voluptas nemo qui aut distinctio. Cumque fugit earum est quam officiis numquam. Ducimus corporis autem at blanditiis beatae incidunt sunt.
-            </p>
-            <p>
-              Voluptas saepe natus quidem blanditiis. Non sunt impedit voluptas mollitia beatae. Qui esse molestias. Laudantium leibero nisi vitae debitis. Dolorem cupiditate est perferendis iusto.
-            </p>
-            <p>
-              Eum quia in. Magni quas ipsum a. Quis ex voluptatem inventore sint quia modi. Numquam est aut fuga mollitia exercitationem nam accusantium provident quia.
+          <div class="col-lg-5 wow fadeInUp pt-4 pt-lg-0 order-2 order-lg-1">
+            <h2 class="text-center" style="color:rgb(9, 93, 248);">MULTIPLATEFORME</h2>
+            -- Vous pouvez y accéder depuis n'importe quel appareil --
+            <br><br><br><br>
+            <p class="text-justify">
+              <strong><span style="color:rgb(221, 113, 40);">Schoo</span><span style="color:rgb(44, 44, 230);">Life</span></strong> est une solution multiplateforme, elle est adaptée pour ordinateurs, tablettes ainsi que vos téléphones portable, une application SchooLife est disponible sur iOS et Android. Restez connectés avec SchooLife où que vous soyez et profitez de la gestion de votre établissement à portée de main. Vous pouvez effectuer l’appel en salle, saisir des notes, renseigner le contenu du cours, ajouter des devoirs directement depuis vos smartphones avec SchooLife.
             </p>
           </div>
 
@@ -398,8 +305,8 @@
             <div class="owl-carousel testimonials-carousel wow fadeInUp">
 
               <div class="testimonial-item">
-                <img src="{{ asset('assetshome/img/testimonial-1.jpg') }}" class="testimonial-img" alt="">
-                <h3>Saul Goodman</h3>
+                <img src="{{ asset('assetshome/img/paulette.jpg') }}" class="testimonial-img" alt="">
+                <h3>............</h3>
                 <h4>Ceo &amp; Founder</h4>
                 <p>
                   Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
@@ -407,27 +314,27 @@
               </div>
 
               <div class="testimonial-item">
-                <img src="{{ asset('assetshome/img/testimonial-2.jpg') }}" class="testimonial-img" alt="">
-                <h3>Sara Wilsson</h3>
-                <h4>Designer</h4>
+                <img src="{{ asset('assetshome/img/nelson.jpg') }}" class="testimonial-img" alt="">
+                <h3>DADA Nelson</h3>
+                <h4>Proviseur du lycée Bilingue Douala </h4>
                 <p>
                   Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
                 </p>
               </div>
 
               <div class="testimonial-item">
-                <img src="{{ asset('assetshome/img/testimonial-3.jpg') }}" class="testimonial-img" alt="">
-                <h3>Jena Karlis</h3>
-                <h4>Store Owner</h4>
+                <img src="{{ asset('assetshome/img/valdez.jpg') }}" class="testimonial-img" alt="">
+                <h3>FOTSO Valdez</h3>
+                <h4>Proviseur du lycée Douala</h4>
                 <p>
                   Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
                 </p>
               </div>
 
               <div class="testimonial-item">
-                <img src="{{ asset('assetshome/img/testimonial-4.jpg') }}" class="testimonial-img" alt="">
-                <h3>Matt Brandon</h3>
-                <h4>Freelancer</h4>
+                <img src="{{ asset('assetshome/img/angelo.jpg') }}" class="testimonial-img" alt="">
+                <h3>ESSAME Angelo</h3>
+                <h4>Proviseur du lycée technique Douala </h4>
                 <p>
                   Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
                 </p>
@@ -442,7 +349,7 @@
       </div>
     </section><!-- #testimonials -->
 
-    <!--==========================
+    {{-- <!--==========================
       Team Section
     ============================-->
     <section id="team" class="section-bg">
@@ -529,27 +436,24 @@
         </div>
 
       </div>
-    </section><!-- #team -->
+    </section><!-- #team --> --}}
 
     <!--==========================
       Clients Section
     ============================-->
     <section id="clients" class="wow fadeInUp">
       <div class="container">
-
-
         <div class="owl-carousel clients-carousel">
-          <img src="{{ asset('assetshome/img/clients/client-1.png') }}" alt="">
-          <img src="{{ asset('assetshome/img/clients/client-2.png') }}" alt="">
-          <img src="{{ asset('assetshome/img/clients/client-3.png') }}" alt="">
-          <img src="{{ asset('assetshome/img/clients/client-4.png') }}" alt="">
+          <img src="{{ asset('assetshome/img/ud.jpg') }}" alt="">
+          <img src="{{ asset('assetshome/img/enset.jpg') }}" alt="">
+          <img src="{{ asset('assetshome/img/ginfo.png') }}" alt="">
         </div>
 
       </div>
     </section><!-- #clients -->
 
 
-    <!--==========================
+    {{-- <!--==========================
       Pricing Section
     ============================-->
     <section id="pricing" class="wow fadeInUp section-bg">
@@ -631,7 +535,7 @@
 
     </section>
 
-    <!-- #pricing -->
+    <!-- #pricing --> --}}
 
     <!--==========================
       Frequently Asked Questions Section
@@ -639,61 +543,43 @@
     <section id="faq">
       <div class="container">
         <header class="section-header">
-          <h3>Frequently Asked Questions</h3>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+          <h3>Foire Aux Questions</h3>
+          <p>Les questions fréquenment posées par les internautes au sujet de SchooLife </p>
         </header>
 
         <ul id="faq-list" class="wow fadeInUp">
           <li>
-            <a data-toggle="collapse" class="collapsed" href="#faq1">Non consectetur a erat nam at lectus urna duis? <i class="ion-android-remove"></i></a>
+            <a data-toggle="collapse" class="collapsed" href="#faq1">Faut-il installer sur notre pc ?<i class="ion-android-remove"></i></a>
             <div id="faq1" class="collapse" data-parent="#faq-list">
               <p>
-                Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+                SchooLife est une solution cloud. Par conséquent, vous n'avez pas besoin de l'installer. SchooLife est installé sur notre serveur et nous nous occupons de sa maintenance et sauvegarde.
               </p>
             </div>
           </li>
 
           <li>
-            <a data-toggle="collapse" href="#faq2" class="collapsed">Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque? <i class="ion-android-remove"></i></a>
+            <a data-toggle="collapse" href="#faq2" class="collapsed">SchooLife peut fonctionner partout dans le monde ?  <i class="ion-android-remove"></i></a>
             <div id="faq2" class="collapse" data-parent="#faq-list">
               <p>
-                Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+                Avec une connexion internet et un navigateur moderne ( chrome, firefox, edge, safari ), SchooLife peut fonctionner partout dans le monde. Nous gérons les devises et fuseaux horaires.
               </p>
             </div>
           </li>
 
           <li>
-            <a data-toggle="collapse" href="#faq3" class="collapsed">Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi? <i class="ion-android-remove"></i></a>
+            <a data-toggle="collapse" href="#faq3" class="collapsed">Est-ce disponible en Anglais ? <i class="ion-android-remove"></i></a>
             <div id="faq3" class="collapse" data-parent="#faq-list">
               <p>
-                Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
+                C'est une solution pour les francophones. Mais, nous avons traduit en anglais et sera bientôt disponible en d'autres langues.
               </p>
             </div>
           </li>
 
           <li>
-            <a data-toggle="collapse" href="#faq4" class="collapsed">Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla? <i class="ion-android-remove"></i></a>
+            <a data-toggle="collapse" href="#faq4" class="collapsed">Proposez-vous des applications ? <i class="ion-android-remove"></i></a>
             <div id="faq4" class="collapse" data-parent="#faq-list">
               <p>
-                Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
-              </p>
-            </div>
-          </li>
-
-          <li>
-            <a data-toggle="collapse" href="#faq5" class="collapsed">Tempus quam pellentesque nec nam aliquam sem et tortor consequat? <i class="ion-android-remove"></i></a>
-            <div id="faq5" class="collapse" data-parent="#faq-list">
-              <p>
-                Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
-              </p>
-            </div>
-          </li>
-
-          <li>
-            <a data-toggle="collapse" href="#faq6" class="collapsed">Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? <i class="ion-android-remove"></i></a>
-            <div id="faq6" class="collapse" data-parent="#faq-list">
-              <p>
-                Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Nibh tellus molestie nunc non blandit massa enim nec.
+                Application SchooLife est gratuite et téléchargeable sur Playstore et Appstore.
               </p>
             </div>
           </li>
@@ -704,150 +590,4 @@
     </section><!-- #faq -->
 
   </main>
-
-  <!--==========================
-    Footer
-  ============================-->
-  <footer id="footer" class="section-bg">
-    <div class="footer-top">
-      <div class="container">
-
-        <div class="row">
-
-          <div class="col-lg-6">
-
-            <div class="row">
-
-                <div class="col-sm-6">
-
-                  <div class="footer-info">
-                    <h3>Rapid</h3>
-                    <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
-                  </div>
-
-                  <div class="footer-newsletter">
-                    <h4>Our Newsletter</h4>
-                    <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna veniam enim veniam illum dolore legam minim quorum culpa amet magna export quem.</p>
-                    <form action="" method="post">
-                      <input type="email" name="email"><input type="submit"  value="Subscribe">
-                    </form>
-                  </div>
-
-                </div>
-
-                <div class="col-sm-6">
-                  <div class="footer-links">
-                    <h4>Useful Links</h4>
-                    <ul>
-                      <li><a href="#">Home</a></li>
-                      <li><a href="#">About us</a></li>
-                      <li><a href="#">Services</a></li>
-                      <li><a href="#">Terms of service</a></li>
-                      <li><a href="#">Privacy policy</a></li>
-                    </ul>
-                  </div>
-
-                  <div class="footer-links">
-                    <h4>Contact Us</h4>
-                    <p>
-                      A108 Adam Street <br>
-                      New York, NY 535022<br>
-                      United States <br>
-                      <strong>Phone:</strong> +1 5589 55488 55<br>
-                      <strong>Email:</strong> info@example.com<br>
-                    </p>
-                  </div>
-
-                  <div class="social-links">
-                    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                    <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-                    <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-                  </div>
-
-                </div>
-
-            </div>
-
-          </div>
-
-          <div class="col-lg-6">
-
-            <div class="form">
-
-              <h4>Send us a message</h4>
-              <p>Eos ipsa est voluptates. Nostrum nam liebero ipsa vero. Debitis quasi sit eaque numquam similique commodi harum aut temporibus.</p>
-              <form action="" method="post" role="form" class="contactForm">
-                <div class="form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                  <div class="validation"></div>
-                </div>
-                <div class="form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                  <div class="validation"></div>
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                  <div class="validation"></div>
-                </div>
-                <div class="form-group">
-                  <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-                  <div class="validation"></div>
-                </div>
-
-                <div id="sendmessage">Your message has been sent. Thank you!</div>
-                <div id="errormessage"></div>
-
-                <div class="text-center"><button type="submit" title="Send Message">Send Message</button></div>
-              </form>
-            </div>
-
-          </div>
-
-
-
-        </div>
-
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong>Rapid</strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        <!--
-          All the links in the footer should remain intact.
-          You can delete the links only if you purchased the pro version.
-          Licensing information: https://bootstrapmade.com/license/
-          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Rapid
-        -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
-    </div>
-  </footer><!-- #footer -->
-
-  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-  <!-- Uncomment below i you want to use a preloader -->
-  <!-- <div id="preloader"></div> -->
-
-  <!-- JavaScript libraries -->
-  <script src="{{ asset('assetshome/lib/jquery/jquery.min.js') }}"></script>
-  <script src="{{ asset('assetshome/lib/jquery/jquery-migrate.min.js') }}"></script>
-  <script src="{{ asset('assetshome/lib/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ asset('assetshome/lib/easing/easing.min.js') }}"></script>
-  <script src="{{ asset('assetshome/lib/mobile-nav/mobile-nav.js') }}"></script>
-  <script src="{{ asset('assetshome/lib/wow/wow.min.js') }}"></script>
-  <script src="{{ asset('assetshome/lib/waypoints/waypoints.min.js') }}"></script>
-  <script src="{{ asset('assetshome/lib/counterup/counterup.min.js') }}"></script>
-  <script src="{{ asset('assetshome/lib/owlcarousel/owl.carousel.min.js') }}"></script>
-  <script src="{{ asset('assetshome/lib/isotope/isotope.pkgd.min.js') }}"></script>
-  <script src="{{ asset('assetshome/lib/lightbox/js/lightbox.min.js') }}"></script>
-  <!-- Contact Form JavaScript File -->
-  <script src="{{ asset('assetshome/contactform/contactform.js') }}"></script>
-
-  <!-- Template Main Javascript File -->
-  <script src="{{ asset('assetshome/js/main.js') }}"></script>
-
-</body>
-</html>
+@endsection

@@ -34,10 +34,10 @@
     <!--==========================
       About Us Section
     ============================-->
-    <section id="about" class="wow fadeIn">
+    <section id="about" class="wow fadeIn" >
 
       <div class="container">
-        <div class="row">
+        <div class="row ">
 
           <div class="col-lg-5 col-md-6 wow bounceInLeft" data-wow-delay="0.3s" data-wow-duration="1.6s">
             <div class="about-img">
@@ -67,7 +67,7 @@
     <!--==========================
       Why Us Section
     ============================-->
-    <section id="why-us" class="wow fadeIn">
+    <section id="why-us" class="wow fadeIn" >
       <div class="container-fluid">
 
         <header class="section-header">
@@ -253,7 +253,7 @@
     <!--==========================
       Features Section
     ============================-->
-    <section id="features">
+    <section id="features" >
       <div class="container">
 
         <div class="row feature-item">
@@ -292,7 +292,7 @@
     <!--==========================
       Clients Section
     ============================-->
-    <section id="testimonials">
+    <section id="testimonials" class="section-bg">
       <div class="container">
 
         <header class="section-header">
@@ -309,7 +309,7 @@
                 <h3>............</h3>
                 <h4>Ceo &amp; Founder</h4>
                 <p>
-                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                  Optimism is an occupational hazard of programming: feedback is the treatment. 
                 </p>
               </div>
 
@@ -318,8 +318,7 @@
                 <h3>DADA Nelson</h3>
                 <h4>Proviseur du lycée Bilingue Douala </h4>
                 <p>
-                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                </p>
+                  Algorithm A Word Used By Programmers When They Don't Want To Explain What They Did.
               </div>
 
               <div class="testimonial-item">
@@ -327,7 +326,7 @@
                 <h3>FOTSO Valdez</h3>
                 <h4>Proviseur du lycée Douala</h4>
                 <p>
-                  Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                  Before software can be reusable it first has to be usable.
                 </p>
               </div>
 
@@ -336,7 +335,7 @@
                 <h3>ESSAME Angelo</h3>
                 <h4>Proviseur du lycée technique Douala </h4>
                 <p>
-                  Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                  A new idea comes suddenly and in a rather intuitive way, but intuition is nothing but the outcome of earlier intellectual experience.
                 </p>
               </div>
 
@@ -441,7 +440,7 @@
     <!--==========================
       Clients Section
     ============================-->
-    <section id="clients" class="wow fadeInUp">
+    <section id="clients" class="wow fadeInUp" >
       <div class="container">
         <div class="owl-carousel clients-carousel">
           <img src="{{ asset('assetshome/img/ud.jpg') }}" alt="">
@@ -540,7 +539,7 @@
     <!--==========================
       Frequently Asked Questions Section
     ============================-->
-    <section id="faq">
+    <section id="faq" class="section-bg" >
       <div class="container">
         <header class="section-header">
           <h3>Foire Aux Questions</h3>

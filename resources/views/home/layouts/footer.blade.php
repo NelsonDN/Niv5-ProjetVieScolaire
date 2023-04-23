@@ -1,9 +1,9 @@
 <!--==========================
     Footer
   ============================-->
-  <footer id="footer" class="section-bg">
-    <div class="footer-top">
-      <div class="container">
+  <footer id="footer"  >
+    <div class="footer-top" style="background: #bcc4cf;" >
+      <div class="container"  >
 
         <div class="row">
 
@@ -114,7 +114,7 @@
           Licensing information: https://bootstrapmade.com/license/
           Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Rapid
         -->
-        Designed by <a href="https://bootstrapmade.com/">Paulette</a>
+        Designed by <a href="https://bootstrapmade.com/">DN-dev</a>
       </div>
     </div>
   </footer><!-- #footer -->

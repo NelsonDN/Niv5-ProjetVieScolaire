@@ -85,7 +85,7 @@
 
           <div class="col-lg-6">
             <div class="why-us-content">
-              <p>Molestiae omnis numquam corrupti omnis itaque. Voluptatum quidem impedit. Odio dolorum exercitationem est error omnis repudiandae ad dolorum sit.</p>
+              {{-- <p>Molestiae omnis numquam corrupti omnis itaque. Voluptatum quidem impedit. Odio dolorum exercitationem est error omnis repudiandae ad dolorum sit.</p> --}}
 
               <div class="features wow bounceInUp clearfix">
                 <i class="fa fa-institution" style="color: #f058dc;"></i>

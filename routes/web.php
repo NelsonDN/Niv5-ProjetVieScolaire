@@ -14,13 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+
 
 Route::get('/', function () {
     return view('home.index');
 })->name('accueil');
+
+Route::get('/teachers', function () {
+    return view('admin_manager.teachers.create');
+});
 
 Route::get('/portails-direction', function(){
     return view('home.direction');

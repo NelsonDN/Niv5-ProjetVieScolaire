@@ -6,13 +6,53 @@
                </div>
                 <div class="sidebar-menu-content">
                     <ul class="nav nav-sidebar-menu sidebar-toggle-view">
-                        @can('access-manager')
+                        {{-- @can('access-manager') --}}
                         <li class="nav-item">
                             <a href="{{route('dashboard_manage.Sections.create')}}" class="nav-link"><i
                                     class="flaticon-dashboard"></i><span>@lang('Dashboard')</span></a>
                         </li>
-                        @endcan
-                        @can('access-manager')
+                        <li class="nav-item sidebar-nav-item">
+                            <a href="#" class="nav-link"><i
+                                    class="fas fa-users"></i><span>@lang('Users Manage')</span></a>
+                            <ul class="nav sub-group-menu">
+                            <li class="nav-item">
+                                    <a href="{{route('users.index')}}" class="nav-link"><i class="fas fa-angle-right"></i>@lang('All Users')</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('users.create')}}" class="nav-link"><i class="fas fa-angle-right"></i>@lang('Add')</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item sidebar-nav-item">
+                            <a href="#" class="nav-link"><i
+                                    class="fas fa-users"></i><span>@lang('Etablissement')</span></a>
+                            <ul class="nav sub-group-menu">
+                                <li class="nav-item">
+                                    <a href="{{route('dashboard_manage.etablissements.index')}}" class="nav-link"><i class="fas fa-angle-right"></i>@lang('Consult Establishments')</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('dashboard_manage.etablissements.create')}}" class="nav-link"><i class="fas fa-angle-right"></i>@lang('Add')</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item sidebar-nav-item">
+                            <a href="#" class="nav-link"><i class="flaticon-maths-class-materials-cross-of-a-pencil-and-a-ruler"></i><span>@lang('Permissions')</span></a>
+                            <ul class="nav sub-group-menu">
+                                <li class="nav-item">
+                                    <a href="{{route('permissions.index')}}" class="nav-link"><i class="fas fa-angle-right"></i>@lang('Add')</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item sidebar-nav-item">
+                            <a href="#" class="nav-link"><i class="flaticon-maths-class-materials-cross-of-a-pencil-and-a-ruler"></i><span>@lang('Roles')</span></a>
+                            <ul class="nav sub-group-menu">
+                                <li class="nav-item">
+                                    <a href="{{route('roles.index')}}" class="nav-link"><i class="fas fa-angle-right"></i>@lang('Add')</a>
+                                </li>
+                            </ul>
+                        </li>
+                        {{-- @endcan --}}
+                        {{-- @can('access-manager') --}}
                         <li class="nav-item sidebar-nav-item">
                             <a href="#" class="nav-link"><i class="fas fa-coins"></i><span>@lang('Sections & Cycles')</span></a>
                             <ul class="nav sub-group-menu">
@@ -84,8 +124,8 @@
                                 </li>
                             </ul>
                         </li>
-                        @endcan
-                        @can('access-teacher')
+                        {{-- @endcan --}}
+                        {{-- @can('access-teacher') --}}
                         <li class="nav-item">
                             <a href="{{route('dashboard_manage.teacher_Schedule.index')}}" class="nav-link"><i
                                     class="fas fa-calendar-alt"></i><span>@lang('Teachers schedule')</span></a>
@@ -94,8 +134,8 @@
                             <a href="{{route('dashboard_manage.textbookTeacher.index')}}" class="nav-link"><i
                                     class="flaticon-open-book"></i><span>@lang('TextBook')</span></a>
                         </li>
-                        @endcanany
-                        @can('access-manager')
+                        {{-- @endcanany --}}
+                        {{-- @can('access-manager') --}}
                         <!-- <li class="nav-item sidebar-nav-item">
                             <a href="#" class="nav-link"><i class="flaticon-classmates"></i><span>@lang('Students')</span></a>
                             <ul class="nav sub-group-menu">
@@ -216,7 +256,7 @@
                             <a href="account-settings.html" class="nav-link"><i
                                     class="flaticon-settings"></i><span>@lang('Account')</span></a>
                         </li> -->
-                        @endcan
+                        {{-- @endcan --}}
                     </ul>
                 </div>
             </div>

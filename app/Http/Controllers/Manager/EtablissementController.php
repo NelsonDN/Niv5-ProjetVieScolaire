@@ -125,16 +125,16 @@ class EtablissementController extends Controller
         $etablissement = Etablissement::findOrFail($id);
         $manager_id = DB::table('model_has_roles')->where('role_id', 2)->pluck('model_id')->toArray();
         $users = User::whereIn('id', $manager_id)->where('etablissement_id', null)->get();
-        // foreach($manager_id as $id){
-        //     $manager_user = User::where('id', $id)->where('etablissement_id', $etablissement->id)->first();
-        //     $manager_user_count = User::where('id', $id)->where('etablissement_id', $etablissement->id)->count();
+        foreach($manager_id as $id){
+            $manager_user = User::where('id', $id)->where('etablissement_id', $etablissement->id)->first();
+            $manager_user_count = User::where('id', $id)->where('etablissement_id', $etablissement->id)->count();
             
-        //     if($manager_user_count>0){
-        //         $users->push($manager_user);
-        //     }else{
-        //         continue;
-        //     }
-        // }
+            if($manager_user_count>0){
+                $users->push($manager_user);
+            }else{
+                continue;
+            }
+        }
 
         return view('admin_manager.gestion_des_établissements.edit', compact(['users', 'etablissement','route']));
     }
@@ -184,7 +184,6 @@ class EtablissementController extends Controller
            $manager =  User::find($id);
            $manager->etablissement_id = $etablissement->id;
            $manager->save();
-        
         }
         return redirect()->route('dashboard_manage.etablissements.index');
 

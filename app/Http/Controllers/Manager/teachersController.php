@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use App\Rules\email_unique_user;
 use App\Rules\teacher_cannot_have_a_subject_at_the_same_periode;
@@ -28,7 +29,7 @@ class teachersController extends Controller
     {
         
         $etablissement_id=auth()->user()->etablissement_id;
-        $enseignant_id = DB::table('model_has_roles')->where('role_id', 3)->pluck('model_id')->toArray();
+        $enseignant_id = DB::table('model_has_roles')->where('role_id', 1)->pluck('model_id')->toArray();
         
         $teachers = User::where('etablissement_id', $etablissement_id)->whereIn('id', $enseignant_id)->get();
 
@@ -88,12 +89,17 @@ class teachersController extends Controller
         $etablissement_id = auth()->user()->etablissement_id;
         $nom_etablissement = auth()->user()->etablissement->nom;
 
-        $teacher = User::create($request->all());
+        // $teacher = User::create($request->all());
+        $teacher = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
         $teacher->etablissement_id = $etablissement_id;
         $teacher->save();
 
 
-        $teacher->assignRole('enseignant');
+        $teacher->assignRole('teacher');
 
         foreach ($request->matiere as $value) { 
             $value =  explode(',', $value);
@@ -155,7 +161,12 @@ class teachersController extends Controller
         ]);
 
         $teacher = User::findOrFail($id);
-        $teacher->update($request->all());
+        $teacher->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+        // $teacher->update($request->all());
         
         // on supprime premierement l'id de cet enseignant de toutes les matieres dans chaque classe 
         DB::table('classe_matiere')->where('user_id', $teacher->id)->update(['user_id'=>null]);

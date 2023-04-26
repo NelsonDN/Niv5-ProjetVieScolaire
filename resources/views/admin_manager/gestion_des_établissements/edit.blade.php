@@ -136,7 +136,7 @@
                                     <select name="manager_id[]" class="select2" multiple required>
                                         <option disabled value="multiselect">@lang('Please Select Manager') *</option>
                                         @foreach($users as $user)
-                                            <option value="{{ $user->id }}" @if($user->etablissement_id === $etablissement->id) selected @endif> {{ $user->name }}</option>
+                                            <option value="{{ $user->id }}" @if($user->etablissement_id == $etablissement->id) selected @endif> {{ $user->name }}</option>
                                         @endforeach
                                     </select>
                                     @error('manager_id.*')

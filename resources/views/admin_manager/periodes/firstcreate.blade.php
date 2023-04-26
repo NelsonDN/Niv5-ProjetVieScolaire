@@ -188,7 +188,7 @@
                                 </div>
                                 <form class="new-added-form" method="POST" action="{{route('dashboard_manage.periode.demi_store')}}" enctype="multipart/form-data">
                                     @csrf
-                                    @method('POST')
+                                    {{-- @method('POST') --}}
                                     @include('admin_manager.flash-message')
                                     <section id="elm" class="mb-4" >
                                         <div class="row">

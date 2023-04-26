@@ -54,9 +54,7 @@ Route::get('/portials-parents', function(){
     return view('home.parents');
 })->name('portails-parents');
 
-Route::get('/dashboard', function () {
-    return view('admin_manager.sections_cycles.sections.index');
-})->middleware('auth')->name('dashboard');
+Route::get('/dashboard', [SectionsController::class, 'create'])->middleware('auth')->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

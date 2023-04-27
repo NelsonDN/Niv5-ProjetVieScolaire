@@ -120,6 +120,18 @@
                                 </li>
                             </ul>
                         </li>
+                        <li class="nav-item sidebar-nav-item">
+                            <a href="#" class="nav-link"><i
+                                    class="flaticon-multiple-users-silhouette"></i><span>@lang('Students')</span></a>
+                            <ul class="nav sub-group-menu">
+                                <li class="nav-item">
+                                    <a href="{{route('dashboard_manage.eleves.index')}}" class="nav-link"><i class="fas fa-angle-right"></i>@lang('All Students')</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('dashboard_manage.eleves.create')}}" class="nav-link"><i class="fas fa-angle-right"></i>@lang('Add a student')</a>
+                                </li>
+                            </ul>
+                        </li>
                         @endcan
                         @can('access-teacher')
                         <li class="nav-item">

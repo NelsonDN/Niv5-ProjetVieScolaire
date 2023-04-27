@@ -1,8 +1,6 @@
 @extends('layouts.app_manager')
 
 @section('style')
-<!-- Favicon -->
-<link rel="shortcut icon" type="image/x-icon" href="{{asset('asset/img/favicon.png')}}">
 <link rel="stylesheet" href="{{asset('asset/css/normalize.css')}}">
 <!-- Main CSS -->
 <link rel="stylesheet" href="{{asset('asset/css/main.css')}}">

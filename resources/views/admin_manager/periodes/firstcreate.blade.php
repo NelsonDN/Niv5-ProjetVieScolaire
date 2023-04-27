@@ -1,8 +1,6 @@
 @extends('layouts.app_manager')
 
 @section('style')
-<!-- Favicon -->
-<link rel="shortcut icon" type="image/x-icon" href="{{asset('asset/img/favicon.png')}}">
 <link rel="stylesheet" href="{{asset('asset/css/normalize.css')}}">
 <!-- Main CSS -->
 <link rel="stylesheet" href="{{asset('asset/css/main.css')}}">
@@ -192,7 +190,7 @@
                                     @include('admin_manager.flash-message')
                                     <section id="elm" class="mb-4" >
                                         <div class="row">
-                                            <div class="col-xl-5 col-lg-3 col-12 form-group">
+                                            <div class="col-xl-5 col-lg-9 col-12 form-group">
                                                 <label>@lang('Days ') *</label>
                                                 <select name="jour[]" class="select2" multiple required>
                                                     <option disabled value="multiselect">@lang('Please Select Day') *</option>
@@ -206,28 +204,28 @@
                                                     <span class="form-text text-muted" role="alert"><strong class="text-danger">{{ $message }}</strong></span>
                                                 @enderror
                                             </div>
-                                            <div class="col-6-xxxl col-lg-3 col-8 form-group">
+                                            <div class="col-6-xxxl col-lg-9 col-12 form-group">
                                                 <label>@lang('The day starts at') *</label>
                                                 <input value="{{old('starttime')}}" name="starttime" type="time" placeholder="" class="form-control">
                                                 @error('starttime')
                                                 <span class="form-text text-muted" role="alert"><strong class="text-danger">{{ $message }}</strong></span>
                                                 @enderror
                                             </div>
-                                            <div class="col-6-xxxl col-lg-3 col-8 form-group">
+                                            <div class="col-6-xxxl col-lg-3 col-12 form-group">
                                                 <label>@lang('The day ends at') *</label>
                                                 <input value="{{old('endtime')}}" name="endtime" type="time" placeholder="" class="form-control">
                                                 @error('endtime')
                                                 <span class="form-text text-muted" role="alert"><strong class="text-danger">{{ $message }}</strong></span>
                                                 @enderror
                                             </div>
-                                            <div class="col-6-xxxl col-lg-5 col-8 form-group">
+                                            <div class="col-6-xxxl col-lg-12 col-12 form-group">
                                                 <label>@lang('Duration of a period of the day') *</label>
                                                 <input value="{{old('duree_period')}}" name="duree_period" type="time" placeholder="" class="form-control">
                                                 @error('duree_period')
                                                 <span class="form-text text-muted" role="alert"><strong class="text-danger">{{ $message }}</strong></span>
                                                 @enderror
                                             </div>
-                                            <div class="col-6-xxxl col-lg-5 col-8 form-group">
+                                            <div class="col-6-xxxl col-lg-9 col-12 form-group">
                                                 <label>@lang('Number of breaks') *</label>
                                                 <input value="{{old('nbre_pause')}}" name="nbre_pause" type="number" placeholder="" class="form-control">
                                                 @error('nbre_pause')

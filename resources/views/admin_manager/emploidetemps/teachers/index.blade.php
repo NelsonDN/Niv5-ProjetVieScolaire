@@ -3,7 +3,6 @@
 
 
 @section('style')
-<link rel="shortcut icon" type="image/x-icon" href="{{asset('asset/img/favicon.png')}}">
 <!-- Normalize CSS -->
 <link rel="stylesheet" href="{{asset('asset/css/normalize.css')}}">
 <!-- Main CSS -->

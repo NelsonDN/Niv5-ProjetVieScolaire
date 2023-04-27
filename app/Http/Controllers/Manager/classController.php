@@ -5,6 +5,7 @@ use App\Models\Classe;
 use App\Models\Section;
 use App\Models\Enseignement;
 use App\Models\Matiere;
+use App\Models\Eleve;
 use App\Models\Cycle;
 use App\Models\Periode;
 use App\Models\Groupeperiode;
@@ -174,13 +175,12 @@ class classController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Classe $class)
     {
-        $classe=Classe::findOrFail($id);
-        $classe->matieres()->detach($classe->id);
-        $classe->delete();
-        
-        return redirect()->route('dashboard_manage.class.index')->with('success', "La classe a été suppriméée");
+
+        $eleves = Eleve::where('classe_id', $class->id)->get();
+
+        return view('admin_manager.class.show', compact('eleves', 'class'));
     }
 
     /**
@@ -335,7 +335,11 @@ class classController extends Controller
     public function destroy($id)
     {
         
-        //
+        $classe=Classe::findOrFail($id);
+        $classe->matieres()->detach($classe->id);
+        $classe->delete();
+        
+        return redirect()->route('dashboard_manage.class.index')->with('success', "La classe a été suppriméée");
         
         
     }

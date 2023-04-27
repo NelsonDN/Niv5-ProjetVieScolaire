@@ -135,7 +135,7 @@
                                 <h5 class="item-title">{{Auth()->user()->name}}</h5>
                             </div>
                             <div class="admin-img list-group-item">
-                                <img src="{{auth()->user()->avatar}}" style="heignt:50px; width:50px;" alt="Admin">
+                                <img src="{{Storage::url(auth()->user()->avatar)}}" style="heignt:50px; width:50px;" alt="Avatar">
                             </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">

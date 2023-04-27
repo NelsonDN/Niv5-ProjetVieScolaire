@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Traits\HasRoles;
+use App\Models\Eleve;
 
 class User extends Authenticatable
 {
@@ -26,6 +27,11 @@ class User extends Authenticatable
         'is_active',
         'avatar'
     ];
+
+    public function eleves()
+    {
+        return $this->belongsToMany(Eleve::class);
+    }
 
     public function etablissement(){
         

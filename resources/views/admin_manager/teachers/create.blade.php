@@ -99,7 +99,7 @@
                                     <span class="form-text text-muted" role="alert"><strong class="text-danger avatar" ></strong></span>
                                 <div class="col-xl-4 col-lg-6 col-12 form-group">
                                     <label>E-Mail *</label>
-                                    <input type="email" name="email" placeholder="" class="form-control">
+                                    <input type="email" value="{{old('email')}}" name="email" placeholder="" class="form-control">
                                     @error('email')
                                         <span class="form-text text-muted" role="alert"><strong class="text-danger">{{ $message }}</strong></span>
                                     @enderror

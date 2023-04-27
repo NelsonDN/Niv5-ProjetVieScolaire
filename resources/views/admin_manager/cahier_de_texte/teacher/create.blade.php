@@ -3,7 +3,7 @@
 
 @section('style')
 
-<link rel="stylesheet" href="{{asset('asset/css/normalize.css')}}">
+e.css')}}">
     <!-- Main CSS -->
     <link rel="stylesheet" href="{{asset('asset/css/main.css')}}">
     <!-- Bootstrap CSS -->

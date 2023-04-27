@@ -17,6 +17,9 @@ use App\Http\Controllers\Manager\PeriodeController;
 use App\Http\Controllers\Manager\JourController;
 use App\Http\Controllers\Manager\EnseignementController;
 use App\Http\Controllers\Manager\TypedecoursController;
+use App\Http\Controllers\Manager\EleveController;
+use App\Http\Controllers\Manager\FatherController;
+
 // User Manage
 use App\Http\Controllers\Manager\UserController;
 use App\Http\Controllers\Manager\RoleController;
@@ -89,7 +92,11 @@ Route::name('dashboard_manage.')->middleware(['auth', 'verified'])->group(functi
     Route::post('half_update/{groupeperiode_id}',[PeriodeController::class, 'demi_update'])->name('periode.demi_update');
     Route::resource('teaching', EnseignementController::class);
     Route::resource('Delete', DeleteController::class);  
-
+    Route::resource('eleves', EleveController::class)->except(['edit','update','destroy'])->parameters(['elefe'=>'eleve']);
+    Route::get('eleves/{eleve}/edit', [EleveController::class, 'edit'])->name('eleves.edit');
+    Route::put('eleves/{eleve}', [EleveController::class, 'update'])->name('eleves.update');
+    Route::delete('eleves/{eleve}', [EleveController::class, 'destroy'])->name('eleves.destroy');
+    Route::resource('fathers', FatherController::class);  
 });
 
 

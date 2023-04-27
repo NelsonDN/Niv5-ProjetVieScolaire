@@ -7,7 +7,10 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>@lang('Infinite Schoolar ')| @yield('title')</title>
+      <!-- Favicons -->
+    <link href="{{ asset('assetshome/img/logo1.png') }}" rel="icon">
+    <link href="{{ asset('assetshome/img/logo1.png') }}" rel="apple-touch-icon">
+    <title>@lang('School Life') | @yield('title')</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->

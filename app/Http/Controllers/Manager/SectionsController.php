@@ -3,7 +3,13 @@
 namespace App\Http\Controllers\Manager;
 
 use App\Models\Section;
+use App\Models\Cycle;
+use App\Models\Matiere;
+use App\Models\Classe;
 use App\Models\User;
+use App\Models\Evaluation;
+use App\Models\Eleve;
+use App\Models\Typedecour;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Rules\nom_unique_section;
@@ -36,11 +42,32 @@ class SectionsController extends Controller
         $users = User::all();
         $teachers= DB::table('model_has_roles')->select('model_id')->where('role_id',3)->get();
         $parents= DB::table('model_has_roles')->select('model_id')->where('role_id',3)->get();
-      //  $users = User::permission('teachers')->get();
-     // $users = User::role('teachers')->get();
+
+        // Liste des evaluations
+        $evaluations = Evaluation::where('etablissement_id', auth()->user()->etablissement_id)->get();
+
+        // Liste des classes
+        $section_id = Section::where('etablissement_id',auth()->user()->etablissement_id)->pluck('id')->toArray();
+        $cycle_id = Cycle::whereIn('section_id',$section_id)->pluck('id')->toArray();
+        $classes = Classe::whereIn('cycle_id', $cycle_id)->get();
+
+        // Liste des matieres 
+        $teacher_matieres = DB::table('classe_matiere')->where('user_id', auth()->user()->id)->pluck('matiere_id')->toArray();
+        $teacher_classes = DB::table('classe_matiere')->where('user_id', auth()->user()->id)->pluck('classe_id')->toArray();
+        $classes = Classe::whereIn('id', $teacher_classes)->get();
+        $matieres = Matiere::whereIn('id', $teacher_matieres)->get();
+
+        $typedecours = Typedecour::where('etablissement_id', auth()->user()->etablissement_id)->get();
+
+        //  $users = User::permission('teachers')->get();
+        // $users = User::role('teachers')->get();
         return view('admin_manager.index', [
             'users' => $users,
-            'teachers'=>$teachers
+            'teachers'=>$teachers,
+            'evaluations' => $evaluations,
+            'classes' => $classes,
+            'matieres' => $matieres,
+            'typedecours' => $typedecours,
             
         ]);
         

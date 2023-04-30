@@ -109,8 +109,16 @@
                             </ul>
                         </li>
                         <li class="nav-item sidebar-nav-item">
+                            <a href="#" class="nav-link"><i class="flaticon-maths-class-materials-cross-of-a-pencil-and-a-ruler"></i><span>@lang('Evaluation')</span></a>
+                            <ul class="nav sub-group-menu">
+                                <li class="nav-item">
+                                    <a href="{{route('dashboard_manage.evaluations.create')}}" class="nav-link"><i class="fas fa-angle-right"></i>@lang('Add')</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item sidebar-nav-item">
                             <a href="#" class="nav-link"><i
-                                    class="flaticon-multiple-users-silhouette"></i><span>@lang('Teachers')</span></a>
+                                    class="fas fa-chalkboard-teacher"></i><span>@lang('Teachers')</span></a>
                             <ul class="nav sub-group-menu">
                                 <li class="nav-item">
                                     <a href="{{route('dashboard_manage.teachers.index')}}" class="nav-link"><i class="fas fa-angle-right"></i>@lang('All Teachers')</a>
@@ -141,6 +149,14 @@
                         <li class="nav-item">
                             <a href="{{route('dashboard_manage.textbookTeacher.index')}}" class="nav-link"><i
                                     class="flaticon-open-book"></i><span>@lang('TextBook')</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('dashboard_manage.notes.index')}}" class="nav-link"><i
+                                    class="fas fa-thumbtack"></i><span>@lang('Notes')</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('dashboard_manage.absences.index')}}" class="nav-link"><i
+                                    class="far fa-bell"></i><span>@lang('Appel')</span></a>
                         </li>
                         @endcan
                         {{-- @can('access-manager') --}}

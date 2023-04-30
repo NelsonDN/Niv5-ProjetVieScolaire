@@ -19,6 +19,10 @@ use App\Http\Controllers\Manager\EnseignementController;
 use App\Http\Controllers\Manager\TypedecoursController;
 use App\Http\Controllers\Manager\EleveController;
 use App\Http\Controllers\Manager\FatherController;
+use App\Http\Controllers\Manager\EvaluationController;
+use App\Http\Controllers\Manager\NoteController;
+use App\Http\Controllers\Manager\AbsenceController;
+
 
 // User Manage
 use App\Http\Controllers\Manager\UserController;
@@ -97,6 +101,14 @@ Route::name('dashboard_manage.')->middleware(['auth', 'verified'])->group(functi
     Route::put('eleves/{eleve}', [EleveController::class, 'update'])->name('eleves.update');
     Route::delete('eleves/{eleve}', [EleveController::class, 'destroy'])->name('eleves.destroy');
     Route::resource('fathers', FatherController::class);  
+    Route::resource('evaluations', EvaluationController::class);  
+    Route::resource('notes', NoteController::class);  
+    Route::post('data_prev/notes',[NoteController::class, 'data_prev'])->name('notes.data_prev');
+    Route::post('index_eleves',[NoteController::class, 'indexEleves'])->name('notes.indexEleves');
+    Route::resource('absences', AbsenceController::class);  
+    Route::post('data_prev/absences',[AbsenceController::class, 'data_prev'])->name('absences.data_prev');
+
+
 });
 
 

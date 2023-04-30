@@ -2,7 +2,8 @@
             <div class="nav-bar-header-one">
                 <div class="header-logo">
                     <a href="index.html">
-                        <img src="" alt="logo">
+                    <img src="{{ asset('assetshome/img/logo-dash.png') }}" alt="logo">
+                    <strong><span style="color:rgb(255, 255, 255);font-size:20px;">Schoo</span><span style="color:rgb(44, 44, 230);font-size:20px;">Life</span></strong>
                     </a>
                 </div>
                  <div class="toggle-button sidebar-toggle">
@@ -135,19 +136,17 @@
                                 <h5 class="item-title">{{Auth()->user()->name}}</h5>
                             </div>
                             <div class="admin-img list-group-item">
-                                <img src="{{Storage::url(auth()->user()->avatar)}}" style="heignt:50px; width:50px;" alt="Avatar">
+                                <img src="{{ auth()->user()->avatar ? $teacher->avatar : asset('asset/img/figure/teacher.jpg') }}" style="heignt:50px; width:50px;" alt="Photo">
                             </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <div class="item-header">
+                            <div class="item-header dropdown-toggle">
                                 <h6 class="item-title">{{Auth()->user()->name}}</h6>
                             </div>
                             <div class="item-content">
                                 <ul class="settings-list">
-                                    <li><a href="#"><i class="flaticon-user"></i>@lang('My Profile')</a></li>
-                                    <li><a href="#"><i class="flaticon-list"></i>@lang('Task')</a></li>
-                                    <li><a href="#"><i class="flaticon-chat-comment-oval-speech-bubble-with-text-lines"></i>@lang('Message')</a></li>
-                                    <li><a href="#"><i class="flaticon-gear-loading"></i>@lang('Account Settings')</a></li>
+                                    <li><a href="{{ route('profile.edit') }}"><i class="flaticon-user"></i>@lang('My Profile')</a></li>
+                                    <li><a href="{{ route('accueil') }}"><i class="fas fa-home"></i>@lang('Go To Welcome Page')</a></li>
                                     <li><a href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

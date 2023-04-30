@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Manager;
 
-use App\Models\Father;
 use App\Models\Eleve;
 use App\Models\User;
 use App\Http\Controllers\Controller;
@@ -79,7 +78,7 @@ class FatherController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Father $father)
+    public function show(User $user)
     {
         //
     }
@@ -87,7 +86,7 @@ class FatherController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Father $father)
+    public function edit(User $user)
     {
         //
     }
@@ -95,7 +94,7 @@ class FatherController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Father $father)
+    public function update(Request $request, User $user)
     {
         //
     }
@@ -103,7 +102,7 @@ class FatherController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Father $father)
+    public function destroy(User $user)
     {
         //
     }

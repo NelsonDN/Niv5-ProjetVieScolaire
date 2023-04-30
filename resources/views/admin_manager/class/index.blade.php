@@ -165,7 +165,7 @@ swalWithBootstrapButtons.fire({
                             <div class="row gutters-8">
                                 <div class="col-1-xxxl col-xl-2 col-lg-3 col-12 form-group">
                                     
-                                    <button type="submit" class="fw-btn-fill btn-gradient-yellow">
+                                    <button class="fw-btn-fill btn-gradient-yellow">
                                         <a class="fw-bold text-white" href="{{route('dashboard_manage.class.create')}}">    
                                         @lang('Add Class')
                                         </a>
@@ -219,7 +219,7 @@ swalWithBootstrapButtons.fire({
                                         </td>
                                         <td>{{$classe->nom}}</td>
                                         <td>{{$classe->limite_eleve}}</td>
-                                        <!-- <td>@php
+                                        {{-- <!-- <td>@php
                                             foreach($les_matieres_de_la_classe as $matiere){                                               
                                                 $classmat_id = DB::table('classe_matiere')->select('id')->where('classe_id', $classe->id)->where('matiere_id',$matiere->id)->first();
                                                 $jour_periode_id = DB::table('classmat_jourperiode')->select('jour_periode_id')->where('classe_matiere_id', $classmat_id->id)->pluck('jour_periode_id')->toArray();
@@ -233,7 +233,7 @@ swalWithBootstrapButtons.fire({
                                                         @php }  @endphp     
                                                     </ul>
                                             @php } @endphp
-                                        </td> -->
+                                        </td> --> --}}
                                         <td>   <button style="border: none; background-color: #0056b3; border-radius: 4px; font-size: 14px; font-weight: 600; color: #ffffff; letter-spacing: 1px; padding: 10px; cursor: pointer; z-index: 9;" onclick="classe(this)" data-matiere="{{ $matieres }}" data-name="{{$classe->nom}}"  class="btn btn-sm btn-clean btn-icon  delete"
                                                     title="Voir les matières de la classe {{$classe->nom}}"> @lang('See Subjects') </button></td>
                                         

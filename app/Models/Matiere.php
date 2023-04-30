@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Absence;
+
 
 class Matiere extends Model
 {
@@ -23,6 +25,11 @@ class Matiere extends Model
     public function classes()
     {
         return $this->belongsToMany(Classe::class)->withTimestamps()->withPivot(['coefficient', 'user_id']);
+    }
+
+    public function absences()
+    {
+        return $this->hasMany(Absence::class);
     }
 
 }

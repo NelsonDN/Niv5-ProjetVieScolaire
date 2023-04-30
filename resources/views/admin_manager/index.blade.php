@@ -57,427 +57,250 @@
             <div class="dashboard-content-one">
                 <!-- Breadcubs Area Start Here -->
                 <div class="breadcrumbs-area">
-                    <h3>@lang('Admin Dashboard')</h3>
+                    <h3>@lang('Dashboard')</h3>
                     <ul>
                         <li>
-                            <a href="index.html">@lang('Home')</a>
+                            <a href="{{ route('accueil') }}">@lang('Home')</a>
                         </li>
-                        <li>@lang('Admin')</li>
+                        <li><a href="{{ route('dashboard') }}">Panel {{ auth()->user()->name }}</a></li>
                     </ul>
                 </div>
                 <!-- Breadcubs Area End Here -->
-                <!-- Dashboard summery Start Here -->
-                <div class="row gutters-20">
-                    <div class="col-xl-3 col-sm-6 col-12">
-                        <div class="dashboard-summery-one mg-b-20">
-                            <div class="row align-items-center">
-                                <div class="col-6">
-                                    <div class="item-icon bg-light-green ">
-                                        <i class="flaticon-classmates text-green"></i>
+                <!-- Dashboard teachers Start Here -->
+
+                {{-- DASHBOARD ADMIN SYSTEM --}}
+                @can("access-admin")
+                    <div class="row gutters-20">
+                        <div class="col-xl-3 col-sm-6 col-12">
+                            <div class="dashboard-summery-one mg-b-20">
+                                <div class="row align-items-center">
+                                    <div class="col-6">
+                                        <div class="item-icon bg-light-green ">
+                                            <i class="flaticon-classmates text-green"></i>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="item-content">
-                                        <div class="item-title">Students</div>
-                                        <div class="item-number"><span class="counter" data-num="{{ $users->count() }}"></span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-sm-6 col-12">
-                        <div class="dashboard-summery-one mg-b-20">
-                            <div class="row align-items-center">
-                                <div class="col-6">
-                                    <div class="item-icon bg-light-blue">
-                                        <i class="flaticon-multiple-users-silhouette text-blue"></i>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="item-content">
-                                        <div class="item-title">@lang('Teachers')</div>
-                                        <div class="item-number"><span class="counter" data-num="{{ $teachers->count() }}"></span></div>
+                                    <div class="col-6">
+                                        <div class="item-content">
+                                            <div class="item-title">Students</div>
+                                            <div class="item-number"><span class="counter" data-num="{{ $users->count() }}"></span></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-sm-6 col-12">
-                        <div class="dashboard-summery-one mg-b-20">
-                            <div class="row align-items-center">
-                                <div class="col-6">
-                                    <div class="item-icon bg-light-yellow">
-                                        <i class="flaticon-couple text-orange"></i>
+                @endcan
+
+                {{-- DASHBOARD MANAGER ETABLISHMENT --}}
+                @can("access-manager")
+                    <div class="row gutters-20">
+                        <div class="col-xl-3 col-sm-6 col-12">
+                            <div class="dashboard-summery-one mg-b-20">
+                                <div class="row align-items-center">
+                                    <div class="col-6">
+                                        <div class="item-icon bg-light-blue">
+                                            <i class="flaticon-multiple-users-silhouette text-blue"></i>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="item-content">
-                                        <div class="item-title">Parents</div>
-                                        <div class="item-number"><span class="counter" data-num="">1,000</span></div>
+                                    <div class="col-6">
+                                        <div class="item-content">
+                                            <div class="item-title">@lang('Teachers')</div>
+                                            <div class="item-number"><span class="counter" data-num="{{ $teachers->count() }}"></span></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-sm-6 col-12">
-                        <div class="dashboard-summery-one mg-b-20">
-                            <div class="row align-items-center">
-                                <div class="col-6">
-                                    <div class="item-icon bg-light-red">
-                                        <i class="flaticon-money text-red"></i>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="item-content">
-                                        <div class="item-title">@lang('Earnings')</div>
-                                        <div class="item-number"><span>$</span><span class="counter" data-num="193000">1,93,00</span></div>
+                @endcan
+
+                {{-- DASHBOARD ENSEIGNANT --}}
+                @can("access-teacher")
+                    <div class="row gutters-20">
+                        <div class="col-xl-3 col-sm-6 col-12">
+                            <div class="dashboard-summery-one mg-b-20">
+                                <div class="row align-items-center">
+                                    <div class="col-12">
+                                        <div class="text-center">
+                                            <div class="text-black">@lang('Vie de classe')</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="col-xl-3 col-sm-6 col-12">
+                            <a href="#" data-toggle="modal" data-target="#appeldeclasse">
+                                <div class="dashboard-summery-one mg-b-20">
+                                    <div class="row align-items-center">
+                                        <div class="col-12">
+                                            <div class="text-center">
+                                                <div class="text-black">@lang('Appel de Classe')</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-xl-3 col-sm-6 col-12">
+                            <div class="dashboard-summery-one mg-b-20">
+                                <div class="row align-items-center">
+                                    <div class="col-12">
+                                        <div class="text-center">
+                                            <div class="text-black">@lang('Sanctions')</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-sm-6 col-12">
+                            <a href="{{ route('dashboard_manage.textbookTeacher.index') }}">
+                                <div class="dashboard-summery-one mg-b-20">
+                                    <div class="row align-items-center">
+                                        <div class="col-12">
+                                            <div class="text-center">
+                                                <div class="text-black">@lang('Cahier de Texte')</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-xl-3 col-sm-6 col-12">
+                            <a href="#" data-toggle="modal" data-target="#evaluation">
+                                <div class="dashboard-summery-one mg-b-20">
+                                    <div class="row align-items-center">
+                                        <div class="col-12">
+                                            <div class="text-center">
+                                                <div class="text-black">@lang('Remplir les notes')</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                @endcan
+                <div class="modal fade" id="appeldeclasse" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg"  role="document">
+                        <div class="modal-content">
+                        <div style="background-color: #042954;" class="modal-header text-center border-bottom-0 btn-secondary">
+                            <h5 style="color:white;" class="modal-title text-center" id="exampleModalLabel">@lang('Evaluations')</h5>
+                            <button style="background-color: #042954;color:white;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div>
+                            <form name="YearForm" action="{{ route('dashboard_manage.absences.data_prev') }}" enctype="multipart/form-data"  method="POST">
+                                @csrf
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="name">@lang('Classes')</label>
+                                        <select name="classe"  style="background-color: #f0f1f3;height: 50px; width:100%; border:none;border-radius: 4px;" class="select2">
+                                            <option selected>@lang('select classe')</option>
+                                                @foreach($classes as $classe)
+                                                    <option value="{{$classe->id}}">{{$classe->nom}}</option>
+                                                @endforeach
+                                        </select>
+                                        @error('classe')
+                                        <span class="form-text text-muted" role="alert"><strong class="text-danger">{{ $message }}</strong></span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">@lang('Matieres')</label>
+                                        <select name="matiere" style="background-color: #f0f1f3;height: 50px; width:100%; border:none;border-radius: 4px;" class="select2">
+                                            <option selected>@lang('select matiere')</option>
+                                                @foreach($matieres as $matiere)
+                                                    <option value="{{$matiere->id}}">{{$matiere->nom}}</option>
+                                                @endforeach
+                                        </select>
+                                        @error('matiere')
+                                        <span class="form-text text-muted" role="alert"><strong class="text-danger">{{ $message }}</strong></span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="typedecour">@lang('Type de Seance')</label>
+                                        <select name="typedecour" style="background-color: #f0f1f3;height: 50px; width:100%; border:none;border-radius: 4px;" class="select2">
+                                            <option selected>@lang('select matiere')</option>
+                                                @foreach($typedecours as $typedecour)
+                                                    <option value="{{$typedecour->id}}">{{$typedecour->nom}}</option>
+                                                @endforeach
+                                        </select>
+                                        @error('typedecour')
+                                        <span class="form-text text-muted" role="alert"><strong class="text-danger">{{ $message }}</strong></span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="modal-footer border-top-0 d-flex justify-content-center">
+                                    <button style="font-size: 2rem;background-color: #ffae01; border:none;" class="btn btn-secondary mr-4" class="close" data-dismiss="modal" title="@lang('Don\'t forget to submit your data before closing the modal.')">
+                                    @lang('Close')
+                                    </button>
+                                    <button style="font-size: 2rem;background-color: #042954;border:none;" type="submit" id="formSubmit" class="btn btn-success">@lang('Submit ')</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-                <!-- Dashboard summery End Here -->
-                <!-- Dashboard Content Start Here -->
-                <div class="row gutters-20">
-                    <div class="col-12 col-xl-8 col-6-xxxl">
-                        <div class="card dashboard-card-one pd-b-20">
-                            <div class="card-body">
-                                <div class="heading-layout1">
-                                    <div class="item-title">
-                                        <h3>@lang('Earnings')</h3>
-                                    </div>
-                                    <div class="dropdown">
-                                        <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                                            aria-expanded="false">...</a>
-
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#"><i
-                                                    class="fas fa-times text-orange-red"></i>@lang('Close')</a>
-                                            <a class="dropdown-item" href="#"><i
-                                                    class="fas fa-cogs text-dark-pastel-green"></i>@lang('Edit')</a>
-                                            <a class="dropdown-item" href="#"><i
-                                                    class="fas fa-redo-alt text-orange-peel"></i>@lang('Refresh')</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="earning-report">
-                                    <div class="item-content">
-                                        <div class="single-item pseudo-bg-blue">
-                                            <h4>@lang('Total Collections')</h4>
-                                            <span>75,000</span>
-                                        </div>
-                                        <div class="single-item pseudo-bg-red">
-                                            <h4>@lang('Fees Collection')</h4>
-                                            <span>15,000</span>
-                                        </div>
-                                    </div>
-                                    <div class="dropdown">
-                                        <a class="date-dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                                            aria-expanded="false">Jan 20, 2019</a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#">Jan 20, 2019</a>
-                                            <a class="dropdown-item" href="#">Jan 20, 2021</a>
-                                            <a class="dropdown-item" href="#">Jan 20, 2020</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="earning-chart-wrap">
-                                    <canvas id="earning-line-chart" width="660" height="320"></canvas>
-                                </div>
-                            </div>
+                <div class="modal fade" id="evaluation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg"  role="document">
+                        <div class="modal-content">
+                        <div style="background-color: #042954;" class="modal-header text-center border-bottom-0 btn-secondary">
+                            <h5 style="color:white;" class="modal-title text-center" id="exampleModalLabel">@lang('Evaluations')</h5>
+                            <button style="background-color: #042954;color:white;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
-                    </div>
-                    <div class="col-12 col-xl-4 col-3-xxxl">
-                        <div class="card dashboard-card-two pd-b-20">
-                            <div class="card-body">
-                                <div class="heading-layout1">
-                                    <div class="item-title">
-                                        <h3>Expenses</h3>
+                        <div>
+                            <form name="YearForm" action="{{ route('dashboard_manage.notes.data_prev') }}" enctype="multipart/form-data"  method="POST">
+                                @csrf
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="name">@lang('Evaluations')</label>
+                                        <select name="evaluation" style="background-color: #f0f1f3;height: 50px; width:100%; border:none;border-radius: 4px;" class="select2">
+                                            <option selected>@lang('select evaluation')</option>
+                                                @foreach($evaluations as $evaluation)
+                                                    <option value="{{$evaluation->id}}">{{$evaluation->name}}</option>
+                                                @endforeach
+                                        </select>
+                                        @error('evaluation')
+                                        <span class="form-text text-muted" role="alert"><strong class="text-danger">{{ $message }}</strong></span>
+                                        @enderror
                                     </div>
-                                    <div class="dropdown">
-                                        <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                                            aria-expanded="false">...</a>
-
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#"><i
-                                                    class="fas fa-times text-orange-red"></i>@lang('Close')</a>
-                                            <a class="dropdown-item" href="#"><i
-                                                    class="fas fa-cogs text-dark-pastel-green"></i>@lang('Edit')</a>
-                                            <a class="dropdown-item" href="#"><i
-                                                    class="fas fa-redo-alt text-orange-peel"></i>@lang('Refresh')</a>
-                                        </div>
+                                    <div class="form-group">
+                                        <label for="name">@lang('Classes')</label>
+                                        <select name="classe"  style="background-color: #f0f1f3;height: 50px; width:100%; border:none;border-radius: 4px;" class="select2">
+                                            <option selected>@lang('select classe')</option>
+                                                @foreach($classes as $classe)
+                                                    <option value="{{$classe->id}}">{{$classe->nom}}</option>
+                                                @endforeach
+                                        </select>
+                                        @error('classe')
+                                        <span class="form-text text-muted" role="alert"><strong class="text-danger">{{ $message }}</strong></span>
+                                        @enderror
                                     </div>
-                                </div>
-                                <div class="expense-report">
-                                    <div class="monthly-expense pseudo-bg-Aquamarine">
-                                        <div class="expense-date">Jan 2019</div>
-                                        <div class="expense-amount"><span>$</span> 15,000</div>
-                                    </div>
-                                    <div class="monthly-expense pseudo-bg-blue">
-                                        <div class="expense-date">Feb 2019</div>
-                                        <div class="expense-amount"><span>$</span> 10,000</div>
-                                    </div>
-                                    <div class="monthly-expense pseudo-bg-yellow">
-                                        <div class="expense-date">Mar 2019</div>
-                                        <div class="expense-amount"><span>$</span> 8,000</div>
-                                    </div>
-                                </div>
-                                <div class="expense-chart-wrap">
-                                    <canvas id="expense-bar-chart" width="100" height="300"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-xl-6 col-3-xxxl">
-                        <div class="card dashboard-card-three pd-b-20">
-                            <div class="card-body">
-                                <div class="heading-layout1">
-                                    <div class="item-title">
-                                        <h3>Students</h3>
-                                    </div>
-                                    <div class="dropdown">
-                                        <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                                            aria-expanded="false">...</a>
-
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#"><i
-                                                    class="fas fa-times text-orange-red"></i>@lang('Close')</a>
-                                            <a class="dropdown-item" href="#"><i
-                                                    class="fas fa-cogs text-dark-pastel-green"></i>@lang('Edit')</a>
-                                            <a class="dropdown-item" href="#"><i
-                                                    class="fas fa-redo-alt text-orange-peel"></i>@lang('Refresh')</a>
-                                        </div>
+                                    <div class="form-group">
+                                        <label for="name">@lang('Matieres')</label>
+                                        <select name="matiere" style="background-color: #f0f1f3;height: 50px; width:100%; border:none;border-radius: 4px;" class="select2">
+                                            <option selected>@lang('select matiere')</option>
+                                                @foreach($matieres as $matiere)
+                                                    <option value="{{$matiere->id}}">{{$matiere->nom}}</option>
+                                                @endforeach
+                                        </select>
+                                        @error('matiere')
+                                        <span class="form-text text-muted" role="alert"><strong class="text-danger">{{ $message }}</strong></span>
+                                        @enderror
                                     </div>
                                 </div>
-                                <div class="doughnut-chart-wrap">
-                                    <canvas id="student-doughnut-chart" width="100" height="300"></canvas>
+                                <div class="modal-footer border-top-0 d-flex justify-content-center">
+                                    <button style="font-size: 2rem;background-color: #ffae01; border:none;" class="btn btn-secondary mr-4" class="close" data-dismiss="modal" title="@lang('Don\'t forget to submit your data before closing the modal.')">
+                                    @lang('Close')
+                                    </button>
+                                    <button style="font-size: 2rem;background-color: #042954;border:none;" type="submit" id="formSubmit" class="btn btn-success">@lang('Submit ')</button>
                                 </div>
-                                <div class="student-report">
-                                    <div class="student-count pseudo-bg-blue">
-                                        <h4 class="item-title">@lang('Female Students')</h4>
-                                        <div class="item-number">45,000</div>
-                                    </div>
-                                    <div class="student-count pseudo-bg-yellow">
-                                        <h4 class="item-title">@lang('Male Students')</h4>
-                                        <div class="item-number">1,05,000</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-xl-6 col-4-xxxl">
-                        <div class="card dashboard-card-four pd-b-20">
-                            <div class="card-body">
-                                <div class="heading-layout1">
-                                    <div class="item-title">
-                                        <h3>Event Calender</h3>
-                                    </div>
-                                    <div class="dropdown">
-                                        <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                                            aria-expanded="false">...</a>
-
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#"><i
-                                                    class="fas fa-times text-orange-red"></i>Close</a>
-                                            <a class="dropdown-item" href="#"><i
-                                                    class="fas fa-cogs text-dark-pastel-green"></i>Edit</a>
-                                            <a class="dropdown-item" href="#"><i
-                                                    class="fas fa-redo-alt text-orange-peel"></i>Refresh</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="calender-wrap">
-                                    <div id="fc-calender" class="fc-calender"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-xl-6 col-4-xxxl">
-                        <div class="card dashboard-card-five pd-b-20">
-                            <div class="card-body pd-b-14">
-                                <div class="heading-layout1">
-                                    <div class="item-title">
-                                        <h3>Website Traffic</h3>
-                                    </div>
-                                    <div class="dropdown">
-                                        <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                                            aria-expanded="false">...</a>
-
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#"><i
-                                                    class="fas fa-times text-orange-red"></i>Close</a>
-                                            <a class="dropdown-item" href="#"><i
-                                                    class="fas fa-cogs text-dark-pastel-green"></i>Edit</a>
-                                            <a class="dropdown-item" href="#"><i
-                                                    class="fas fa-redo-alt text-orange-peel"></i>Refresh</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <h6 class="traffic-title">Unique Visitors</h6>
-                                <div class="traffic-number">2,590</div>
-                                <div class="traffic-bar">
-                                    <div class="direct" data-toggle="tooltip" data-placement="top" title="Direct">
-                                    </div>
-                                    <div class="search" data-toggle="tooltip" data-placement="top" title="Search">
-                                    </div>
-                                    <div class="referrals" data-toggle="tooltip" data-placement="top" title="Referrals">
-                                    </div>
-                                    <div class="social" data-toggle="tooltip" data-placement="top" title="Social">
-                                    </div>
-                                </div>
-                                <div class="traffic-table table-responsive">
-                                    <table class="table">
-                                        <tbody>
-                                            <tr>
-                                                <td class="t-title pseudo-bg-Aquamarine">Direct</td>
-                                                <td>12,890</td>
-                                                <td>50%</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="t-title pseudo-bg-blue">Search</td>
-                                                <td>7,245</td>
-                                                <td>27%</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="t-title pseudo-bg-yellow">Referrals</td>
-                                                <td>4,256</td>
-                                                <td>8%</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="t-title pseudo-bg-red">Social</td>
-                                                <td>500</td>
-                                                <td>7%</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-xl-6 col-4-xxxl">
-                        <div class="card dashboard-card-six pd-b-20">
-                            <div class="card-body">
-                                <div class="heading-layout1 mg-b-17">
-                                    <div class="item-title">
-                                        <h3>Notice Board</h3>
-                                    </div>
-                                    <div class="dropdown">
-                                        <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                                            aria-expanded="false">...</a>
-
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#"><i
-                                                    class="fas fa-times text-orange-red"></i>Close</a>
-                                            <a class="dropdown-item" href="#"><i
-                                                    class="fas fa-cogs text-dark-pastel-green"></i>Edit</a>
-                                            <a class="dropdown-item" href="#"><i
-                                                    class="fas fa-redo-alt text-orange-peel"></i>Refresh</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="notice-box-wrap">
-                                    <div class="notice-list">
-                                        <div class="post-date bg-skyblue">16 June, 2019</div>
-                                        <h6 class="notice-title"><a href="#">Great School manag mene esom text of the
-                                                printing.</a></h6>
-                                        <div class="entry-meta"> Jennyfar Lopez / <span>5 min ago</span></div>
-                                    </div>
-                                    <div class="notice-list">
-                                        <div class="post-date bg-yellow">16 June, 2019</div>
-                                        <h6 class="notice-title"><a href="#">Great School manag printing.</a></h6>
-                                        <div class="entry-meta"> Jennyfar Lopez / <span>5 min ago</span></div>
-                                    </div>
-                                    <div class="notice-list">
-                                        <div class="post-date bg-pink">16 June, 2019</div>
-                                        <h6 class="notice-title"><a href="#">Great School manag meneesom.</a></h6>
-                                        <div class="entry-meta"> Jennyfar Lopez / <span>5 min ago</span></div>
-                                    </div>
-                                    <div class="notice-list">
-                                        <div class="post-date bg-skyblue">16 June, 2019</div>
-                                        <h6 class="notice-title"><a href="#">Great School manag mene esom text of the
-                                                printing.</a></h6>
-                                        <div class="entry-meta"> Jennyfar Lopez / <span>5 min ago</span></div>
-                                    </div>
-                                    <div class="notice-list">
-                                        <div class="post-date bg-yellow">16 June, 2019</div>
-                                        <h6 class="notice-title"><a href="#">Great School manag printing.</a></h6>
-                                        <div class="entry-meta"> Jennyfar Lopez / <span>5 min ago</span></div>
-                                    </div>
-                                    <div class="notice-list">
-                                        <div class="post-date bg-pink">16 June, 2019</div>
-                                        <h6 class="notice-title"><a href="#">Great School manag meneesom.</a></h6>
-                                        <div class="entry-meta"> Jennyfar Lopez / <span>5 min ago</span></div>
-                                    </div>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-                <!-- Dashboard Content End Here -->
-                <!-- Social Media Start Here -->
-                <div class="row gutters-20">
-                    <div class="col-lg-3 col-sm-6 col-12">
-                        <div class="card dashboard-card-seven">
-                            <div class="social-media bg-fb hover-fb">
-                                <div class="media media-none--lg">
-                                    <div class="social-icon">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </div>
-                                    <div class="media-body space-sm">
-                                        <h6 class="item-title">Like us on facebook</h6>
-                                    </div>
-                                </div>
-                                <div class="social-like">30,000</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 col-12">
-                        <div class="card dashboard-card-seven">
-                            <div class="social-media bg-twitter hover-twitter">
-                                <div class="media media-none--lg">
-                                        <div class="social-icon">
-                                        <i class="fab fa-twitter"></i>
-                                        </div>
-                                        <div class="media-body space-sm">
-                                            <h6 class="item-title">Follow us on twitter</h6>
-                                        </div>
-                                </div>
-                                <div class="social-like">1,11,000</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 col-12">
-                        <div class="card dashboard-card-seven">
-                            <div class="social-media bg-gplus hover-gplus">
-                                <div class="media media-none--lg">
-                                    <div class="social-icon">
-                                        <i class="fab fa-google-plus-g"></i>
-                                    </div>
-                                    <div class="media-body space-sm">
-                                        <h6 class="item-title">Follow us on googleplus</h6>
-                                    </div>
-                                </div>
-                                <div class="social-like">19,000</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 col-12">
-                        <div class="card dashboard-card-seven">
-                            <div class="social-media bg-linkedin hover-linked">
-                                <div class="media media-none--lg">
-                                    <div class="social-icon">
-                                    <i class="fab fa-linkedin-in"></i>
-                                    </div>
-                                    <div class="media-body space-sm">
-                                        <h6 class="item-title">Follow us on linked</h6>
-                                    </div>
-                                </div>
-                                <div class="social-like">45,000</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
                 <!-- Social Media End Here -->
                 <!-- Footer Area Start Here -->
                 <footer class="footer-wrap-layout1">

@@ -1,8 +1,6 @@
 @extends('layouts.app_manager')
 
-
 @section('style')
-<!-- Normalize CSS -->
 <link rel="stylesheet" href="{{asset('asset/css/normalize.css')}}">
 <!-- Main CSS -->
 <link rel="stylesheet" href="{{asset('asset/css/main.css')}}">
@@ -14,11 +12,10 @@
 <link rel="stylesheet" href="{{asset('asset/fonts/flaticon.css')}}">
 <!-- Animate CSS -->
 <link rel="stylesheet" href="{{asset('asset/css/animate.min.css')}}">
-<!-- Select 2 CSS -->
+<!-- select2 -->
 <link rel="stylesheet" href="{{asset('asset/css/select2.min.css')}}">
-<link rel="stylesheet" href="{{asset('asset/css/datepicker.min.css')}}">
 <!-- Data Table CSS -->
-<!-- <link rel="stylesheet" href="{{asset('asset/css/jquery.dataTables.min.css')}}"> -->
+<link rel="stylesheet" href="{{asset('asset/css/jquery.dataTables.min.css')}}">
 <!-- Custom CSS -->
 <link rel="stylesheet" href="{{asset('asset/style.css')}}">
 <!-- Modernize js -->
@@ -26,29 +23,62 @@
 <script src = "https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 @endsection
 @section('script')
- <!-- jquery-->
- <script src="{{asset('asset/js/jquery-3.3.1.min.js')}}"></script>
- <!-- Plugins js -->
- <script src="{{asset('asset/js/plugins.js')}}"></script>
- <!-- Popper js -->
- <script src="{{asset('asset/js/popper.min.js')}}"></script>
- <!-- Bootstrap js -->
- <script src="{{asset('asset/js/bootstrap.min.js')}}"></script>
- <!-- Select 2 Js -->
- <script src="{{asset('asset/js/select2.min.js')}}"></script>
- <script src="{{asset('asset/js/datepicker.min.js')}}"></script>
- <!-- Scroll Up Js -->
- <script src="{{asset('asset/js/jquery.scrollUp.min.js')}}"></script>
- <!-- Data Table Js -->
- <script src="{{asset('asset/js/jquery.dataTables.min.js')}}"></script>
- <!-- Custom Js -->
- <script src="{{asset('asset/js/main.js')}}"></script>
+    <script src="{{asset('asset/js/jquery-3.3.1.min.js')}}"></script>
+    <!-- Plugins js -->
+    <script src="{{asset('asset/js/plugins.js')}}"></script>
+    <!-- Popper js -->
+    <script src="{{asset('asset/js/popper.min.js')}}"></script>
+    <!-- Bootstrap js -->
+    <script src="{{asset('asset/js/bootstrap.min.js')}}"></script>
+    <!-- Select 2 Js -->
+    <script src="{{asset('asset/js/select2.min.js')}}"></script>
+    <!-- Scroll Up Js -->
+    <script src="{{asset('asset/js/jquery.scrollUp.min.js')}}"></script>
+    <!-- Data Table Js -->
+    <script src="{{asset('asset/js/jquery.dataTables.min.js')}}"></script>
+    <!-- Custom Js -->
+    <script src="{{asset('asset/js/main.js')}}"></script>
+
+    <script>
+        $(document).ready(function(){
+            let btn = $('#plus');
+            let section = $('#elm');
+            let minus = $('#minus');
+            minus.hide();
+
+            var i;
+            // var add = "<div class='row' id='elm'><div class='col-12-xl col-lg-6 col-12 form-group'><label>Teachings Name *</label><input type='text' value='{{old('name.*')}}' name='name' placeholder='' class='form-control'></div><div class='col-12 form-group mg-t-8'>@error('name.*')<span class='form-text text-muted mr-5' role='alert'><strong class='text-danger'>{{ $message }}</strong></span>@enderror";
+            $(btn).click(function(e){
+                i++;
+                e.preventDefault();
+                var result = section.children('.row')[0].outerHTML;
+                section.append(result);
+                minus.show();
+            })
+
+        
+
+            $(minus).click(function(e){
+                // i--;
+                e.preventDefault();
+                $result = $('#elm').children();
+                $result.last().remove();
+                if($result.length < 3){
+                    minus.hide();
+                    console.log($result.length);
+                }
+                // console.log($result.length);
+                
+            })
+        })
+
+    </script>
     <script type="application/javascript">
 
         function deleteItem(e){
 
             let id = e.getAttribute('data-id');
-           
+
             const swalWithBootstrapButtons = Swal.mixin({
                 customClass: {
                     confirmButton: 'btn btn-success',
@@ -71,7 +101,7 @@
 
                         $.ajax({
                             type:'DELETE',
-                            url:'{{url("Cycles")}}/' +id,
+                            url:'{{url("evaluations")}}/' +id,
                             data:{
                                 "_token": "{{ csrf_token() }}",
                             },
@@ -107,9 +137,8 @@
 
     </script>
 @endsection
-
 @section('content')
-    <div id="preloader"></div>
+<div id="preloader"></div>
     <!-- Preloader End Here -->
     <div id="wrapper" class="wrapper bg-ash">
        <!-- Header Menu Area Start Here -->
@@ -123,12 +152,12 @@
             <div class="dashboard-content-one">
                 <!-- Breadcubs Area Start Here -->
                 <div class="breadcrumbs-area">
-                    <h3>@lang('Cycle')</h3>
+                    <h3>@lang('Evaluations')</h3>
                     <ul>
                         <li>
-                            <a href="index.html">@lang('Home')</a>
+                            <a href="{{route('dashboard_manage.evaluations.index')}}">@lang('Home')</a>
                         </li>
-                        <li>@lang('Cycles')</li>
+                        <li>@lang('evluations')</li>
                     </ul>
                 </div>
                 <!-- Breadcubs Area End Here -->
@@ -139,7 +168,7 @@
                             <div class="card-body">
                                 <div class="heading-layout1">
                                     <div class="item-title">
-                                        <h3>@lang('Add New Cycle')</h3>
+                                        <h3>@lang('Edit Evaluation')</h3>
                                     </div>
                                     <div class="dropdown">
                                         <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown"
@@ -155,34 +184,22 @@
                                         </div>
                                     </div>
                                 </div>
-                                <form class="new-added-form" method="POST" action="{{route('dashboard_manage.Cycles.store')}}" enctype="multipart/form-data">
+                                <form class="new-added-form" method="POST" action="{{route('dashboard_manage.evaluations.update', $evaluation->id)}}" enctype="multipart/form-data">
                                     @csrf
+                                    @method('PUT')
                                     @include('admin_manager.flash-message')
-                                    <div class="row">
-                                        <div class="col-12-xxxl col-lg-6 col-12 form-group">
-                                            <label>@lang('Cycle Name *')</label>
-                                            <input type="text" value="{{old('name')}}" name="name" placeholder="" class="form-control">
-                                            @error('name')
-                                            <span class="form-text text-muted mr-5" role="alert"><strong class="text-danger">{{ $message }}</strong></span>
-                                            @enderror
+                                    <section id="elm" class="mb-4" >
+                                        <div class="row">
+                                            <div class="col-12-xxxl col-lg-6 col-12 form-group">
+                                                <label>@lang('Evaluation Title')</label>
+                                                <input value="{{$evaluation->name}}" name="name" type="text" placeholder="" class="form-control">
+                                                @error('name')
+                                                <span class="form-text text-muted" role="alert"><strong class="text-danger">{{ $message }}</strong></span>
+                                                @enderror
+                                            </div>
                                         </div>
-                                        <div class="col-12-xxxl col-lg-6 col-12 form-group">
-                                            <label>@lang('Select Section *')</label>
-                                            <select name="section" style="background-color: #f0f1f3;height: 50px; width:100%; border:none;border-radius: 4px;" class="select2">
-                                            <option selected>@lang('select')</option>
-                                                @foreach($sections as $section)
-                                                    <option value="{{$section->id}}">{{$section->name}}</option>
-                                                @endforeach
-                                            </select>
-                                            @error('section')
-                                            <span class="form-text text-muted" role="alert"><strong class="text-danger">{{ $message }}</strong></span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-12 form-group mg-t-8">
-                                            <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">@lang('Save')</button>
-                                            <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">@lang('Reset')</button>
-                                        </div>
-                                    </div>
+                                    </section>
+                                        <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">@lang('Save')</button>
                                 </form>
                             </div>
                         </div>
@@ -192,7 +209,7 @@
                             <div class="card-body">
                                 <div class="heading-layout1">
                                     <div class="item-title">
-                                        <h3>@lang('All Cycles')</h3>
+                                        <h3>@lang('All Evaluations')</h3>
                                     </div>
                                     <div class="dropdown">
                                         <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown"
@@ -211,10 +228,10 @@
                                 <form class="mg-b-20">
                                     <div class="row gutters-8">
                                         <div class="col-lg-4 col-12 form-group">
-                                            <input type="text" placeholder="@lang('Search by Exam ...')" class="form-control">
+                                            <input type="text" placeholder="@lang('Search by Exam...')" class="form-control">
                                         </div>
                                         <div class="col-lg-3 col-12 form-group">
-                                            <input type="text" placeholder="@lang('Search by Subject ...')" class="form-control">
+                                            <input type="text" placeholder="@lang('Search by Subject...')" class="form-control">
                                         </div>
                                         <div class="col-lg-3 col-12 form-group">
                                             <input type="text" placeholder="dd/mm/yyyy" class="form-control">
@@ -232,30 +249,36 @@
                                                 <th>
                                                     <div class="form-check">
                                                         <input type="checkbox" class="form-check-input checkAll">
-                                                        <label class="form-check-label">@lang('ID')</label>
+                                                        <label class="form-check-label">ID</label>
                                                     </div>
                                                 </th>
-                                                <th>@lang('Name')</th>
-                                                <th>@lang('Section')</th>
-                                                <th>@lang('Creating Date')</th>
+                                                <th>@lang('Evaluation Ttile')</th>
+                                                <th>@lang('Creating at')</th>
+                                                <th>@lang('Supp')</th>
                                                 <th>@lang('Actions')</th>
-                                                <th></th>
                                             </tr>
                                         </thead>
-                                        <tbody> 
-                                            @foreach ($cycles as $cycle)
-                                                <tr data-entry-id="">
+                                        <tbody>
+                                                @foreach($evaluations as $evaluation)
+                                                <tr>
+                                                <td>
+                                                    <div class="form-check">
+                                                        <input type="checkbox" class="form-check-input">
+                                                        <label class="form-check-label">{{ $loop->index+1 }}</label>
+                                                    </div>
+                                                </td>
+                                                    <td>{{$evaluation->name}}</td>
+                                                    <td>{{$evaluation->created_at}}</td>
                                                     <td>
-                                                        <div class="form-check">
-                                                            <input type="checkbox" class="form-check-input">
-                                                            <label class="form-check-label">#0021</label>
-                                                        </div>
+                                                        <a href="#" class="btn btn-danger" onclick="if (confirm('Voulez-vous vraiment supprimer la journée __ {{ $evaluation->name }}__ ?')){document.getElementById('form-{{$evaluation->id}}').submit()}" >@lang('Delete')</a>
+                                                            <form id="form-{{$evaluation->id}}" method="post" action ="{{ route('dashboard_manage.evaluations.destroy', ['evaluation'=> $evaluation->id])}}">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                                <input type="hidden" name="_method" value="delete">
+                                                            </form> 
                                                     </td>
-                                                    <td>{{$cycle->name}}</td>
-                                                    <td>{{$cycle->section->name}}</td>
-                                                    <td>{{$cycle->created_at}}</td>
                                                     <td>
-                                                        <a href="{{ route('dashboard_manage.Cycles.edit', $cycle->id)}}"
+                                                        <a href="{{ route('dashboard_manage.evaluations.edit', $evaluation->id)}}"
                                                             class="btn btn-sm btn-clean btn-icon mr-2" title="Edit details">
                                                             <span class="svg-icon svg-icon-success svg-icon-md"> <svg
                                                                     xmlns="http://www.w3.org/2000/svg"
@@ -274,7 +297,7 @@
                                                                     </g>
                                                                 </svg> </span>
                                                         </a>
-                                                        <button onclick="deleteItem(this)" data-id="{{ $cycle->id }}" class="btn btn-sm btn-clean btn-icon  delete"
+                                                        <button onclick="deleteItem(this)" data-id="{{ $evaluation->id }}" class="btn btn-sm btn-clean btn-icon  delete"
                                                             title="Delete"> 
                                                             <span class="svg-icon svg-icon-danger svg-icon-md"> 
                                                                 <svg
@@ -296,8 +319,7 @@
                                                         </button>
                                                     </td>
                                                 </tr>
-                                                
-                                            @endforeach
+                                                @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -307,7 +329,7 @@
                 </div>
                 <!-- All Subjects Area End Here -->
                 <footer class="footer-wrap-layout1">
-                    <div class="copyright">© @lang('Copyrights') <a href="#">akkhor</a> 2019. @lang('All rights reserved'). @lang('Designed by') <a
+                    <div class="copyright">© @lang('Copyrights') <a href="#">akkhor</a> 2019.@lang(' All rights reserved'). @lang('Designed by') <a
                             href="#">PsdBosS</a></div>
                 </footer>
             </div>
